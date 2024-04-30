@@ -12,7 +12,9 @@ async function weatherDefault() {
     temp.innerText = `${apiJsonDefault.main.temp}°C`;
     humidity.innerText = `${apiJsonDefault.main.humidity} %`;
     wind.innerText = `${apiJsonDefault.wind.speed} Km/hr`;
-    image.alt = apiJsonDefault.weather[0].main;
+    let nameWD = apiJsonDefault.weather[0].main.toLowerCase();
+    image.src = `images/${nameWD}.png`;
+    image.alt = apiJsonDefault.weather[0].main.toLowerCase();
 }
 async function checkWeather(){
     let cityName = document.querySelector("#search").value;
@@ -21,9 +23,9 @@ async function checkWeather(){
     temp.innerText = `${apiJson.main.temp}°C`;
     humidity.innerText = `${apiJson.main.humidity} %`;
     wind.innerText = `${apiJson.wind.speed} Km/hr`;
-    const nameW = apiJson.weather[0].main.toLowerCase();
+    let nameW = apiJson.weather[0].main.toLowerCase();
     image.src = `images/${nameW}.png`;
-    image.alt = apiJson.weather[0].main;
+    image.alt = apiJson.weather[0].main.toLowerCase();
     city.innerText = cityName;
 }
 btn.addEventListener(("click"), (evt) => {
