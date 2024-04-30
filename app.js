@@ -21,7 +21,8 @@ async function checkWeather(){
     temp.innerText = `${apiJson.main.temp}°C`;
     humidity.innerText = `${apiJson.main.humidity} %`;
     wind.innerText = `${apiJson.wind.speed} Km/hr`;
-    image.src = `images/${apiJson.weather[0].main}.png`;
+    const nameW = apiJson.weather[0].main.toLowerCase();
+    image.src = `images/${nameW}.png`;
     image.alt = apiJson.weather[0].main;
     city.innerText = cityName;
 }
